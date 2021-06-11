@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item's information</title>
+</head>
+<body>
+<h1>Register Order</h1>
+<a href="{% url 'home' %}">Return to Home Page</a>
+<br>
+<form action="shipping_status" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+{% for field in form %}
+     <br>
+    {{ field }}
+     <br>
+{% endfor %}
+<select name="bought_by">
+    {% for user in ordered_by %}
+        <option value={{ user.phone_number }}>
+            {{ user.first_name|add:" "|add:user.last_name }}
+        </option>
+    {% endfor %}
+</select>
+     <br>
+    <button type="submit">Register Entry</button>
+</form>
+
+</body>
+</html>

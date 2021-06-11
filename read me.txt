@@ -1,0 +1,19 @@
+To run this application you will need on your virtual environment:
+
+asgiref==3.3.4
+Django==3.2.4
+mysqlclient @ file:///mysql_django/mysqlclient-1.4.6-cp37-cp37m-win32.whl ( included on this package if you have troubles downloading it so you could install it, it MUST be this specific version )
+pytz==2021.1
+sqlparse==0.4.1
+typing-extensions==3.10.0.0
+
+phpMyAdmin 5.1.0
+
+
+    Server: MySQL (127.0.0.1 via TCP/IP)
+    Server type: MySQL
+    Server connection: SSL is not being used Documentation
+    Server version: 8.0.23 - MySQL Community Server - GPL
+    Protocol version: 10
+    User: root@localhost
+    Server charset: UTF-8 Unicode (utf8mb4)

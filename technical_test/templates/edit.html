@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit order</title>
+</head>
+<body>
+<h1> Order # {{ order_number }} </h1>
+
+<a href="{% url 'home' %}">Return to Dashboard</a>
+
+<form action="{% url 'edit_order' order_number %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+    {% for field in form %}
+    <br>
+    {{ field }}
+    <br>
+    {% endfor %}
+    <button type="submit">Edit Order Information</button>
+</form>
+<br>
+<form action="{% url 'home' %}" method="POST" name="delete_entry" enctype="multipart/form-data"> {% csrf_token %}
+    <button type="submit">Delete Entry</button>
+    <input type="text" hidden="hidden" value="{{ order_number }}" name="order_number">
+</form>
+
+</body>
+</html>

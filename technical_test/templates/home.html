@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+table.GeneratedTable {
+  width: 100%;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  color: #000000;
+}
+
+table.GeneratedTable td, table.GeneratedTable th {
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  padding: 3px;
+}
+
+table.GeneratedTable thead {
+  background-color: #ffcc00;
+}
+</style>
+
+</head>
+<body>
+<h1>Dashboard</h1>
+<a href="{% url 'shipping_data' %}">Add Shipping Label</a> | <a href="{% url 'shipping_status' %}">Add Order</a>
+<h3>Orders</h3>
+<br>
+{% for info in orders %}
+<table class="GeneratedTable">
+    <thead>
+    <tr>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><a href="{% url 'edit_order' info %}">Order #: {{ order }} - {{ info.item }}</a></td>
+        <td>{{ info.price}}</td>
+        <td>{{ info.bought_by.first_name|add:" "|add:info.bought_by.last_name}}</td>
+        <td>{{ info.bought_by.phone_number }}</td>
+        <td>{{ info.bought_by.address }}</td>
+        <td>{{ info.bought_by.email }}</td>
+    </tr>
+    </tbody>
+</table>
+{% endfor %}
+
+</body>
+<br>
+</html>
